@@ -1,3 +1,12 @@
+# [2.26.0](https://github.com/ghoshRitesh12/aniwatch/compare/v2.25.0...v2.26.0) (2026-03-14)
+
+
+### Features
+
+* update failing lint ([7f96ce8](https://github.com/ghoshRitesh12/aniwatch/commit/7f96ce82840014e22587a0a7e3052ed81f44d857))
+
+
+
 # [2.25.0](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.5...v2.25.0) (2026-03-14)
 
 
@@ -34,15 +43,6 @@
 
 
 ## [2.24.3](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.2...v2.24.3) (2025-08-26)
-
-
-
-## [2.24.2](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.1...v2.24.2) (2025-08-26)
-
-
-### Bug Fixes
-
-* Megacloud V3 decryption ([ed1f920](https://github.com/ghoshRitesh12/aniwatch/commit/ed1f9206622bd041f1a36653afb538de89dd2da3))
 
 
 
