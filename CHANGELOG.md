@@ -1,3 +1,12 @@
+## [2.26.1](https://github.com/ghoshRitesh12/aniwatch/compare/v2.26.0...v2.26.1) (2026-03-14)
+
+
+### Bug Fixes
+
+* fixed linter issues ([af17ffd](https://github.com/ghoshRitesh12/aniwatch/commit/af17ffdf590de9bb2c84268238880887cdde3e5c))
+
+
+
 # [2.26.0](https://github.com/ghoshRitesh12/aniwatch/compare/v2.25.0...v2.26.0) (2026-03-14)
 
 
@@ -39,10 +48,6 @@
 ### Bug Fixes
 
 * use the correct data structed ([3d5881d](https://github.com/ghoshRitesh12/aniwatch/commit/3d5881dc9547d821b9eff4048cd4c74b42386b56))
-
-
-
-## [2.24.3](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.2...v2.24.3) (2025-08-26)
 
 
 
