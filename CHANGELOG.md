@@ -1,3 +1,12 @@
+## [2.26.2](https://github.com/ghoshRitesh12/aniwatch/compare/v2.26.1...v2.26.2) (2026-03-14)
+
+
+### Bug Fixes
+
+* lint errors ([d9f6ccb](https://github.com/ghoshRitesh12/aniwatch/commit/d9f6ccba1e804ee3284dfec440902444d2f2a4ad))
+
+
+
 ## [2.26.1](https://github.com/ghoshRitesh12/aniwatch/compare/v2.26.0...v2.26.1) (2026-03-14)
 
 
@@ -39,15 +48,6 @@
 ### Bug Fixes
 
 * improve mostPopular animes extraction for various anime pages ([cf24d2a](https://github.com/ghoshRitesh12/aniwatch/commit/cf24d2a7d4e6cfcd6b9fd32d23292022a0784adb))
-
-
-
-## [2.24.4](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.3...v2.24.4) (2025-10-06)
-
-
-### Bug Fixes
-
-* use the correct data structed ([3d5881d](https://github.com/ghoshRitesh12/aniwatch/commit/3d5881dc9547d821b9eff4048cd4c74b42386b56))
 
 
 
