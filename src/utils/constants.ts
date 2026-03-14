@@ -4,16 +4,26 @@ export const USER_AGENT_HEADER =
 export const ACCEPT_HEADER =
     "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" as const;
 
-// previously zoro.to -> aniwatch.to -> aniwatchtv.to -> hianimez.to
-// Configurable via ANIWATCH_DOMAIN env variable
-// Known working mirrors: aniwatchtv.to (megacloud), 9animetv.to (rapid-cloud), kaido.to (rapid-cloud)
+// Mirror domains (as of March 2026):
+//
+// Domain          | AJAX prefix | Embed type  | Suggest | Producer | Schedule | Sources
+// --------------- | ----------- | ----------- | ------- | -------- | -------- | -------
+// aniwatchtv.to   | /v2         | megacloud   | OK      | OK       | OK       | OK      (default)
+// 9animetv.to     | (none)      | rapid-cloud | OK      | 404      | OK       | OK
+// kaido.to        | (none)      | rapid-cloud | broken  | 404      | empty    | OK
+// 4anime.gg       | (none)      | rapid-cloud | OK      | 404      | disabled | OK
+// hianime.to      | /v2         | megacloud   | OK      | OK       | goodbye  | dead
+// hianimez.to     | /v2         | megacloud   | dead    | dead     | dead     | dead
+//
+// Configurable via env: ANIWATCH_DOMAIN, ANIWATCH_AJAX_VERSION_PREFIX
 const DOMAIN = process.env.ANIWATCH_DOMAIN || "aniwatchtv.to";
 
 export const SRC_BASE_URL = `https://${DOMAIN}`;
 export const SRC_AJAX_URL = `${SRC_BASE_URL}/ajax`;
-// Configurable via ANIWATCH_AJAX_VERSION_PREFIX env variable
-// kaido.to uses /ajax/ directly (empty prefix), hianime uses /ajax/v2/
-export const SRC_AJAX_VERSION_PREFIX = process.env.ANIWATCH_AJAX_VERSION_PREFIX ?? (DOMAIN === "kaido.to" ? "" : "/v2");
+// /v2 domains: aniwatchtv.to, hianime.to
+// No prefix domains: 9animetv.to, 4anime.gg, kaido.to
+export const SRC_AJAX_VERSION_PREFIX = process.env.ANIWATCH_AJAX_VERSION_PREFIX
+    ?? (["kaido.to", "9animetv.to", "4anime.gg"].includes(DOMAIN) ? "" : "/v2");
 export const SRC_HOME_URL = `${SRC_BASE_URL}/home`;
 export const SRC_SEARCH_URL = `${SRC_BASE_URL}/search`;
 
