@@ -1,3 +1,7 @@
+## [2.27.5](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.4...v2.27.5) (2026-03-14)
+
+
+
 ## [2.27.4](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.3...v2.27.4) (2026-03-14)
 
 
@@ -11,15 +15,6 @@
 
 
 ## [2.27.1](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.0...v2.27.1) (2026-03-14)
-
-
-
-# [2.27.0](https://github.com/ghoshRitesh12/aniwatch/compare/v2.26.2...v2.27.0) (2026-03-14)
-
-
-### Features
-
-* sync changes ([e2663ca](https://github.com/ghoshRitesh12/aniwatch/commit/e2663ca8b4feb90bc598b26917c0aaaf2f1d89e0))
 
 
 
