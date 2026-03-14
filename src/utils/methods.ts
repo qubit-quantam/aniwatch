@@ -6,18 +6,19 @@ import type {
     Top10AnimeTimePeriod,
 } from "../hianime/types/anime.js";
 import { SEARCH_PAGE_FILTERS, SRC_BASE_URL } from "./constants.js";
-import type { CheerioAPI, SelectorType, Cheerio, AnyNode } from "cheerio";
+import type { CheerioAPI, SelectorType, Cheerio } from "cheerio";
 import type { FilterKeys } from "../hianime/types/animeSearch.js";
 
 export const extractAnimes = (
     $: CheerioAPI,
-    selector: SelectorType,
+    selector: SelectorType | Cheerio<any>,
     scraperName: string
 ): Anime[] => {
     try {
         const animes: Anime[] = [];
+        const elements = typeof selector === "string" ? $(selector) : selector;
 
-        $(selector).each((_, el) => {
+        elements.each((_, el) => {
             const animeId =
                 $(el)
                     .find(".film-detail .film-name .dynamic-name")
@@ -145,13 +146,12 @@ export const extractTop10Animes = (
 
 export const extractMostPopularAnimes = (
     $: CheerioAPI,
-    selector: SelectorType | Cheerio<AnyNode>,
+    selector: SelectorType | Cheerio<any>,
     scraperName: string
 ): MostPopularAnime[] => {
     try {
         const animes: MostPopularAnime[] = [];
-        const elements =
-            typeof selector === "string" ? $(selector) : selector;
+        const elements = typeof selector === "string" ? $(selector) : selector;
 
         elements.each((_, el) => {
             animes.push({

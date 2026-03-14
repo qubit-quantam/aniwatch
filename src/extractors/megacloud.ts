@@ -4,7 +4,7 @@ import { HiAnimeError } from "../hianime/error.js";
 // import { getSources } from "./megacloud.getsrcs.js";
 import CryptoJS from "crypto-js";
 import * as cheerio from "cheerio";
-import { getMegaCloudClientKey, decryptSrc2 } from '../utils/index.js';
+import { getMegaCloudClientKey, decryptSrc2 } from "../utils/index.js";
 import type { Subtitle } from "../hianime/types/extractor.js";
 
 // https://megacloud.tv/embed-2/e-1/dBqCr5BcOhnD?k=1
@@ -41,8 +41,9 @@ export type extractedSrc = {
 };
 
 type ExtractedData = Pick<extractedSrc, "intro" | "outro"> & {
+    tracks: track[];
     sources: { url: string; type: string }[];
-	subtitles: Subtitle[];
+    subtitles: Subtitle[];
 };
 
 class MegaCloud {
@@ -61,6 +62,7 @@ class MegaCloud {
                     end: 0,
                 },
                 sources: [],
+                subtitles: [],
             };
 
             const videoId = videoUrl?.href?.split("/")?.pop()?.split("?")[0];
@@ -293,6 +295,7 @@ class MegaCloud {
                     end: 0,
                 },
                 sources: [],
+                subtitles: [],
             };
 
             const match = /\/([^\/\?]+)\?/.exec(embedIframeURL.href);
@@ -342,7 +345,10 @@ class MegaCloud {
         }
     }
 
-    async extract4(embedIframeURL: string, category: "sub" | "dub" | "raw"): Promise<ExtractedData> {
+    async extract4(
+        embedIframeURL: string,
+        category: "sub" | "dub" | "raw"
+    ): Promise<ExtractedData> {
         const extractedData: ExtractedData = {
             tracks: [],
             intro: {
@@ -354,6 +360,7 @@ class MegaCloud {
                 end: 0,
             },
             sources: [],
+            subtitles: [],
         };
 
         const epId = embedIframeURL.split("?ep=")[1];
@@ -440,6 +447,7 @@ class MegaCloud {
             const key = response.data;
             const megacloudKey = key["mega"];
             const extractedData: ExtractedData = {
+                tracks: [],
                 subtitles: [],
                 intro: {
                     start: 0,
@@ -467,7 +475,7 @@ class MegaCloud {
             const megacloudUrl = `https://megacloud.blog/embed-2/v3/e-1/getSources?id=${sourceId}&_k=${clientKey}`;
             const { data: rawSourceData } = await axios.get(megacloudUrl);
             let decryptedSources;
-            if (!(rawSourceData?.encrypted)){
+            if (!rawSourceData?.encrypted) {
                 decryptedSources = rawSourceData?.sources;
             } else {
                 const encrypted = rawSourceData?.sources;
@@ -475,7 +483,11 @@ class MegaCloud {
                     throw new Error("Encrypted source missing in response");
                 console.log(clientKey, megacloudKey, encrypted);
 
-                const decrypted = decryptSrc2(encrypted, clientKey, megacloudKey);
+                const decrypted = decryptSrc2(
+                    encrypted,
+                    clientKey,
+                    megacloudKey
+                );
 
                 try {
                     decryptedSources = JSON.parse(decrypted);
@@ -494,12 +506,12 @@ class MegaCloud {
 
             extractedData.subtitles =
                 rawSourceData.tracks
-					?.filter((track: any) => track.kind === "captions")
-					?.map((track: any) => ({
-						url: track.file,
-						lang: track.label ? track.label : track.kind,
-						default: track.default || false,
-					})) || [];
+                    ?.filter((track: any) => track.kind === "captions")
+                    ?.map((track: any) => ({
+                        url: track.file,
+                        lang: track.label ? track.label : track.kind,
+                        default: track.default || false,
+                    })) || [];
             extractedData.sources = decryptedSources.map((s: any) => ({
                 url: s.file,
                 isM3U8: s.type === "hls",
@@ -507,7 +519,7 @@ class MegaCloud {
             }));
 
             return extractedData;
-        } catch (err){
+        } catch (err) {
             throw err;
         }
     }

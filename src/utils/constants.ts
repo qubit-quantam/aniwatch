@@ -22,8 +22,9 @@ export const SRC_BASE_URL = `https://${DOMAIN}`;
 export const SRC_AJAX_URL = `${SRC_BASE_URL}/ajax`;
 // /v2 domains: aniwatchtv.to, hianime.to
 // No prefix domains: 9animetv.to, 4anime.gg, kaido.to
-export const SRC_AJAX_VERSION_PREFIX = process.env.ANIWATCH_AJAX_VERSION_PREFIX
-    ?? (["kaido.to", "9animetv.to", "4anime.gg"].includes(DOMAIN) ? "" : "/v2");
+export const SRC_AJAX_VERSION_PREFIX =
+    process.env.ANIWATCH_AJAX_VERSION_PREFIX ??
+    (["kaido.to", "9animetv.to", "4anime.gg"].includes(DOMAIN) ? "" : "/v2");
 export const SRC_HOME_URL = `${SRC_BASE_URL}/home`;
 export const SRC_SEARCH_URL = `${SRC_BASE_URL}/search`;
 
