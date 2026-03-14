@@ -52,6 +52,7 @@ class MegaCloud {
     async extract(videoUrl: URL) {
         try {
             const extractedData: ExtractedData = {
+                tracks: [],
                 subtitles: [],
                 intro: {
                     start: 0,
@@ -62,7 +63,6 @@ class MegaCloud {
                     end: 0,
                 },
                 sources: [],
-                subtitles: [],
             };
 
             const videoId = videoUrl?.href?.split("/")?.pop()?.split("?")[0];
@@ -300,6 +300,7 @@ class MegaCloud {
             const key = response.data;
             const extractedData: ExtractedData = {
                 subtitles: [],
+                tracks: [],
                 intro: {
                     start: 0,
                     end: 0,
@@ -309,7 +310,6 @@ class MegaCloud {
                     end: 0,
                 },
                 sources: [],
-                subtitles: [],
             };
 
             const match = /\/([^\/\?]+)\?/.exec(embedIframeURL.href);
@@ -344,12 +344,12 @@ class MegaCloud {
 
             extractedData.subtitles =
                 rawSourceData.tracks
-					?.filter((track: any) => track.kind === "captions")
-					?.map((track: any) => ({
-						url: track.file,
-						lang: track.label ? track.label : track.kind,
-						default: track.default || false,
-					})) || [];
+                    ?.filter((track: any) => track.kind === "captions")
+                    ?.map((track: any) => ({
+                        url: track.file,
+                        lang: track.label ? track.label : track.kind,
+                        default: track.default || false,
+                    })) || [];
             extractedData.sources = decryptedSources.map((s: any) => ({
                 url: s.file,
                 isM3U8: s.type === "hls",
@@ -368,6 +368,7 @@ class MegaCloud {
     ): Promise<ExtractedData> {
         const extractedData: ExtractedData = {
             subtitles: [],
+            tracks: [],
             intro: {
                 start: 0,
                 end: 0,
@@ -377,7 +378,6 @@ class MegaCloud {
                 end: 0,
             },
             sources: [],
-            subtitles: [],
         };
 
         const epId = embedIframeURL.split("?ep=")[1];
