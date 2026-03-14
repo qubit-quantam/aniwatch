@@ -1,3 +1,7 @@
+## [2.27.9](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.8...v2.27.9) (2026-03-14)
+
+
+
 ## [2.27.8](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.7...v2.27.8) (2026-03-14)
 
 
@@ -16,10 +20,6 @@
 
 
 ## [2.27.5](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.4...v2.27.5) (2026-03-14)
-
-
-
-## [2.27.4](https://github.com/ghoshRitesh12/aniwatch/compare/v2.27.3...v2.27.4) (2026-03-14)
 
 
 
