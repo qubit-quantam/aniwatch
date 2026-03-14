@@ -1,3 +1,20 @@
+# [2.25.0](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.5...v2.25.0) (2026-03-14)
+
+
+### Bug Fixes
+
+* full kaido.to source extraction support ([944979e](https://github.com/ghoshRitesh12/aniwatch/commit/944979eb5c333bbbfad403012a974c90b4b1d963))
+* use configurable SRC_BASE_URL as referer in getMegaCloudClientKey ([0245099](https://github.com/ghoshRitesh12/aniwatch/commit/024509956dd9b5535f852afc3d82462126b1429d))
+
+
+### Features
+
+* default to aniwatchtv.to — 14/14 tests pass ([67ceb7e](https://github.com/ghoshRitesh12/aniwatch/commit/67ceb7e262a1ed41b3ebd73806e3fc49f701b4ac))
+* make domain and AJAX version prefix configurable via env ([a8632ff](https://github.com/ghoshRitesh12/aniwatch/commit/a8632ffb64ae6a6e1127c7627a8dcfab3574b237))
+* support rapid-cloud.co extraction for kaido.to ([f206ef8](https://github.com/ghoshRitesh12/aniwatch/commit/f206ef8e3d4ed17b003d29d5c6d0b2a90d286f1a))
+
+
+
 ## [2.24.5](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.4...v2.24.5) (2026-01-22)
 
 
@@ -26,18 +43,6 @@
 ### Bug Fixes
 
 * Megacloud V3 decryption ([ed1f920](https://github.com/ghoshRitesh12/aniwatch/commit/ed1f9206622bd041f1a36653afb538de89dd2da3))
-
-
-
-## [2.24.1](https://github.com/ghoshRitesh12/aniwatch/compare/v2.24.0...v2.24.1) (2025-08-23)
-
-
-### Bug Fixes
-
-* Delete dist directory ([2fd9897](https://github.com/ghoshRitesh12/aniwatch/commit/2fd98979c33f97fb97b1bb3fbe20df7470886fc8))
-* hehe ([5687791](https://github.com/ghoshRitesh12/aniwatch/commit/568779102c8ee429337a9870e8171db3bc0d4951))
-* missing category param in megacloud extractor ([ecc839a](https://github.com/ghoshRitesh12/aniwatch/commit/ecc839ae83a2c1c592df837b00f46ca1ca0dfabe))
-* remove episodeSources.test.ts ([c599543](https://github.com/ghoshRitesh12/aniwatch/commit/c5995436ec5bb34dcf9c02e092605a8b5836b422))
 
 
 
