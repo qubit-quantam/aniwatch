@@ -5,7 +5,7 @@ import type {
     MostPopularAnime,
     Top10AnimeTimePeriod,
 } from "../hianime/types/anime.js";
-import { SEARCH_PAGE_FILTERS } from "./constants.js";
+import { SEARCH_PAGE_FILTERS, SRC_BASE_URL } from "./constants.js";
 import type { CheerioAPI, SelectorType, Cheerio, AnyNode } from "cheerio";
 import type { FilterKeys } from "../hianime/types/animeSearch.js";
 
@@ -318,7 +318,7 @@ export async function getMegaCloudClientKey(
     try {
         const req = await fetch(
             `https://megacloud.blog/embed-2/v3/e-1/${xrax}`,
-            { headers: { Referer: "https://hianime.to/" } }
+            { headers: { Referer: `${SRC_BASE_URL}/` } }
         );
         text = await req.text();
         // regex's for the following key obfuscation methods
