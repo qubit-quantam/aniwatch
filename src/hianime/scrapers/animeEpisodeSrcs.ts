@@ -4,6 +4,7 @@ import { client } from "../../config/client.js";
 import { HiAnimeError } from "../error.js";
 import {
     SRC_AJAX_URL,
+    SRC_AJAX_VERSION_PREFIX,
     SRC_BASE_URL,
     retrieveServerId,
     USER_AGENT_HEADER,
@@ -74,7 +75,7 @@ async function _getAnimeEpisodeSources(
 
     try {
         const resp = await client.get(
-            `${SRC_AJAX_URL}/v2/episode/servers?episodeId=${epId.split("?ep=")[1]}`,
+            `${SRC_AJAX_URL}${SRC_AJAX_VERSION_PREFIX}/episode/servers?episodeId=${epId.split("?ep=")[1]}`,
             {
                 headers: {
                     Referer: epId,
@@ -124,7 +125,7 @@ async function _getAnimeEpisodeSources(
         const {
             data: { link },
         } = await client.get(
-            `${SRC_AJAX_URL}/v2/episode/sources?id=${serverId}`
+            `${SRC_AJAX_URL}${SRC_AJAX_VERSION_PREFIX}/episode/sources?id=${serverId}`
         );
         log.info(`THE LINK: ${link}`);
 
