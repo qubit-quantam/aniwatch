@@ -38,7 +38,6 @@
         "package"
     ],
     "dependencies": {
-        "aniwatch": "^2.24.3",
         "axios": "^1.7.9",
         "cheerio": "1.0.0",
         "crypto-js": "^4.2.0",
