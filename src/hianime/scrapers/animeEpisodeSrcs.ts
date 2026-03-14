@@ -34,11 +34,11 @@ async function _getAnimeEpisodeSources(
         switch (server) {
             case Servers.VidStreaming:
             case Servers.VidCloud:
-                // rapid-cloud.co uses RapidCloud extractor (kaido.to)
-                // megacloud.tv uses MegaCloud extractor (hianime)
+                // rapid-cloud.co (kaido.to): use RapidCloud extractor
+                // megacloud.tv (hianime): use MegaCloud extractor
                 if (serverUrl.hostname.includes("rapid-cloud")) {
                     return {
-                        headers: { Referer: serverUrl.href },
+                        headers: { Referer: `${SRC_BASE_URL}/` },
                         ...(await new RapidCloud().extract(serverUrl)),
                     };
                 }

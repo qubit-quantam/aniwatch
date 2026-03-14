@@ -114,7 +114,9 @@ class RapidCloud {
                 this.sources = [];
 
                 for (const source of sources) {
-                    const { data } = await axios.get(source.file, options);
+                    const { data } = await axios.get(source.file, {
+                        headers: { Referer: `https://${videoUrl.hostname}/` },
+                    });
                     const m3u8data = data
                         .split("\n")
                         .filter(
